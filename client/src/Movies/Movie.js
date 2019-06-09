@@ -68,7 +68,7 @@ export default class Movie extends Component {
           <div className="movie-metascore">
             Metascore: <strong>{metascore}</strong>
           </div>
-          <nav cals>
+          <nav>
             <NavLink
               to={`/movies/${this.props.match.params.id}/actors`}
               onClick={this.handleToggleActors}
@@ -83,6 +83,7 @@ export default class Movie extends Component {
           {this.state.showActors && (
             <div>
               <Route
+                exact
                 path="/movies/:id/actors"
                 render={props => <Actors {...props} stars={stars} />}
               />

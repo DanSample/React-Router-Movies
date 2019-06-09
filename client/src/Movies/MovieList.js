@@ -53,7 +53,6 @@ function MovieDetails({ movie }) {
       <div className="movie-metascore">
         Metascore: <strong>{metascore}</strong>
       </div>
-      <h3>Actors</h3>
     </div>
   );
 }
