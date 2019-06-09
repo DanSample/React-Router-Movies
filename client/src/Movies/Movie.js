@@ -7,10 +7,8 @@ export default class Movie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movie: null,
-      showActors: true
+      movie: null
     };
-    console.log(this.showActors);
   }
 
   componentDidMount() {
@@ -40,18 +38,6 @@ export default class Movie extends Component {
   //   addToSavedList(this.state.movie)
   // }
 
-  handleToggleActors = e => {
-    if (e.target.className !== 'active') {
-      this.setState({
-        showActors: true
-      });
-    } else {
-      this.setState({
-        showActors: !this.state.showActors
-      });
-    }
-  };
-
   render() {
     if (!this.state.movie) {
       return <div>Loading movie information...</div>;
@@ -70,25 +56,19 @@ export default class Movie extends Component {
           </div>
           <nav>
             <NavLink
-              to={`/movies/${this.props.match.params.id}/actors`}
-              onClick={this.handleToggleActors}
+              to={`/movies/${this.props.match.params.id}`}
               style={{
                 textDecoration: 'none',
                 color: 'black'
               }}
-            >
-              <h3>Actors</h3>
-            </NavLink>
+            />
           </nav>
-          {this.state.showActors && (
-            <div>
-              <Route
-                exact
-                path="/movies/:id/actors"
-                render={props => <Actors {...props} stars={stars} />}
-              />
-            </div>
-          )}
+          <div>
+            <Route
+              path="/movies/:id"
+              render={props => <Actors {...props} stars={stars} />}
+            />
+          </div>
         </div>
         <div className="save-button">Save</div>
       </div>
