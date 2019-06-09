@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
+import { Route, NavLink } from 'react-router-dom';
 import axios from 'axios';
+import Actors from './Actors';
 
 export default class Movie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movie: null
+      movie: null,
+      showActors: true
     };
-    console.log(this.props);
+    console.log(this.showActors);
   }
 
   componentDidMount() {
@@ -37,6 +40,18 @@ export default class Movie extends Component {
   //   addToSavedList(this.state.movie)
   // }
 
+  handleToggleActors = e => {
+    if (e.target.className !== 'active') {
+      this.setState({
+        showActors: true
+      });
+    } else {
+      this.setState({
+        showActors: !this.state.showActors
+      });
+    }
+  };
+
   render() {
     if (!this.state.movie) {
       return <div>Loading movie information...</div>;
@@ -53,13 +68,26 @@ export default class Movie extends Component {
           <div className="movie-metascore">
             Metascore: <strong>{metascore}</strong>
           </div>
-          <h3>Actors</h3>
-
-          {stars.map(star => (
-            <div key={star} className="movie-star">
-              {star}
+          <nav cals>
+            <NavLink
+              to={`/movies/${this.props.match.params.id}/actors`}
+              onClick={this.handleToggleActors}
+              style={{
+                textDecoration: 'none',
+                color: 'black'
+              }}
+            >
+              <h3>Actors</h3>
+            </NavLink>
+          </nav>
+          {this.state.showActors && (
+            <div>
+              <Route
+                path="/movies/:id/actors"
+                render={props => <Actors {...props} stars={stars} />}
+              />
             </div>
-          ))}
+          )}
         </div>
         <div className="save-button">Save</div>
       </div>

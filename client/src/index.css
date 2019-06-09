@@ -70,3 +70,11 @@ body {
   padding: 5px 10px;
   background-color: lightskyblue;
 }
+
+.actor-list {
+  /* display: none; */
+}
+
+.actor-list .active {
+  display: flex;
+}
