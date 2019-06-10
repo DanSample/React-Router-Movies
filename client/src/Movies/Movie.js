@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, Link, NavLink } from 'react-router-dom';
 import axios from 'axios';
 import Actors from './Actors';
 
@@ -54,23 +54,25 @@ export default class Movie extends Component {
           <div className="movie-metascore">
             Metascore: <strong>{metascore}</strong>
           </div>
-          <nav>
-            <NavLink
-              to={`/movies/${this.props.match.params.id}`}
-              style={{
-                textDecoration: 'none',
-                color: 'black'
-              }}
-            />
-          </nav>
-          <div>
-            <Route
-              path="/movies/:id"
-              render={props => <Actors {...props} stars={stars} />}
-            />
-          </div>
+          <div> 
+              <Route
+                path="/movielist/movies/:id"
+                render={props => <Actors {...props} stars={stars} />}
+              />
+            </div>
+          <div className='movie-buttons-wrapper'>
+              <NavLink
+                to={`/movielist/movies/${this.props.match.params.id}`}
+                style={{
+                  textDecoration: 'none',
+                  color: 'black'
+                }}
+              />
+          <div><Link to={'/'} className="movie-home-button">Saved</Link></div>
+          <div><Link to={'/'} className="movie-home-button">Home</Link></div>
+          <div><Link to={'/movielist'} className="movie-list-button">Movie List</Link></div>
         </div>
-        <div className="save-button">Save</div>
+        </div>
       </div>
     );
   }

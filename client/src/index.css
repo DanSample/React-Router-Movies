@@ -54,9 +54,6 @@ body {
   margin: 1rem auto;
 }
 .save-button {
-  position: absolute;
-  top: 25px;
-  right: 25px;
   border: 1px solid grey;
   padding: 5px 10px;
   background-color: lightseagreen;
@@ -69,4 +66,92 @@ body {
 .home-button {
   padding: 5px 10px;
   background-color: lightskyblue;
+}
+
+.home-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('./img/film\ reel.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.home-page .home-shadow-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height:70%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.home-page .home-shadow-box h3 {
+  margin-bottom: 1.5rem;
+}
+
+.home-page .home-shadow-box button {
+  border: none;
+  border-radius: 5px;
+}
+
+.movie-home-button {
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: lightseagreen;
+  text-decoration: none;
+  color: black;
+}
+.movie-home-button:hover {
+  background-color: green;
+  color: white;
+}
+
+
+.movie-list-button {
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: lightseagreen;
+  text-decoration: none;
+  color: black;
+}
+.movie-list-button:hover {
+  background-color: green;
+  color: white;
+}
+
+.save-home-button {
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: lightseagreen;
+  text-decoration: none;
+  color: black;
+}
+.save-home-button:hover {
+  background-color: green;
+  color: white;
+}
+
+.save-buttons-wrapper {
+  height: auto;
+  width: 9rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.movie-buttons-wrapper {
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
