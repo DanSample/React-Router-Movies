@@ -54,24 +54,36 @@ export default class Movie extends Component {
           <div className="movie-metascore">
             Metascore: <strong>{metascore}</strong>
           </div>
-          <div> 
-              <Route
-                path="/movielist/movies/:id"
-                render={props => <Actors {...props} stars={stars} />}
-              />
+          <div>
+            <Route
+              path="/movielist/movies/:id"
+              render={props => <Actors {...props} stars={stars} />}
+            />
+          </div>
+          <div className="movie-buttons-wrapper">
+            <NavLink
+              to={`/movielist/movies/${this.props.match.params.id}`}
+              style={{
+                textDecoration: 'none',
+                color: 'black'
+              }}
+            />
+            <div>
+              <Link to={'/'} className="movie-home-button">
+                Saved
+              </Link>
             </div>
-          <div className='movie-buttons-wrapper'>
-              <NavLink
-                to={`/movielist/movies/${this.props.match.params.id}`}
-                style={{
-                  textDecoration: 'none',
-                  color: 'black'
-                }}
-              />
-          <div><Link to={'/'} className="movie-home-button">Saved</Link></div>
-          <div><Link to={'/'} className="movie-home-button">Home</Link></div>
-          <div><Link to={'/movielist'} className="movie-list-button">Movie List</Link></div>
-        </div>
+            <div>
+              <Link to={'/'} className="movie-home-button">
+                Home
+              </Link>
+            </div>
+            <div>
+              <Link to={'/movielist'} className="movie-list-button">
+                Movie List
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     );
